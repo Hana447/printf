@@ -67,7 +67,7 @@ int print_non_printable(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
 	int i = 0, offset = 0;
-	char *str va_arg(types, char *);
+	char *str =  va_arg(types, char *);
 
 	UNUSED(flags);
 	UNUSED(width);
@@ -165,7 +165,7 @@ int print_rot13string(va_list types, char buffer[],
 
 	if (str == NULL)
 		str = "(AHYY)";
-	fofr (i = 0; str[i]; i++)
+	for (i = 0; str[i]; i++)
 	{
 		for (j = 0; in[j]; j++)
 		{

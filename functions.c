@@ -54,7 +54,7 @@ int print_string(va_list types, char buffer[],
 	if (precision >= 0 && precision < length)
 		length = precision;
 
-	if (widith > length)
+	if (width > length)
 	{
 		if (flags & F_MINUS)
 		{
@@ -65,7 +65,7 @@ int print_string(va_list types, char buffer[],
 		}
 		else
 		{
-			fot (i = width - length; i > 0; i--)
+			for (i = width - length; i > 0; i--)
 				write(1, " ", 1);
 			write(1, &str[0], length);
 			return (width);
@@ -119,7 +119,7 @@ int print_int(va_list types, char buffer[],
 	n = convert_size_number(n, size);
 
 	if (n == 0)
-		buffer[i--] = '0\';
+		buffer[i--] = '0';
 
 	buffer[BUFF_SIZE - 1] = '\0';
 	num = (unsigned long int)n;
@@ -152,7 +152,7 @@ int print_int(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Number of char printed.
  */
-int print_binary(va_list types, char buffer[]
+int print_binary(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
 	unsigned int n, m, i, sum;

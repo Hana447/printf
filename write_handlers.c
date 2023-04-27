@@ -70,7 +70,7 @@ int write_number(int is_negative, int ind, char buffer[],
 	if (is_negative)
 		extra_ch = '-';
 	else if (flags & F_PLUS)
-		extra_ch '+';
+		extra_ch = '+';
 	else if (flags & F_SPACE)
 		extra_ch = ' ';
 
@@ -106,10 +106,10 @@ int write_num(int ind, char buffer[],
 	while (prec > length)
 		buffer[--ind] = '0', length++;
 	if (extra_c != 0)
-		lenght++;
+		length++;
 	if (width > length)
 	{
-		for (i = 1; < width - length + 1; i++)
+		for (i = 1; i < width - length + 1; i++)
 			buffer[i] = padd;
 		buffer[i] = '\0';
 		if (flags & F_MINUS && padd == ' ')/* Asign extra char to left of buffer */
