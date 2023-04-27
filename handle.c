@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * handle_print - function 
+ * handle_print - function
  * @fmt: param1
  * @list: param2.
  * @ind: param3
@@ -23,14 +23,15 @@ fmt_t fmt_types[] = {
 	{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 	};
 	for (i = 0; fmt_types[i].fmt != '\0'; i++)
-		if(fmt[*ind] == fmt_types[i].fmt)
-			return (fmt_types[i].fn(list,buffer,flags,width,precision, size));
+		if (fmt[*ind] == fmt_types[i].fmt)
+			return (fmt_types[i].fn(list, buffer,
+				flags, width, precision, size));
 	if (fmt_types[i].fmt == '\0')
 	{
 		if (fmt[*ind] == '\0')
 			return (-1);
 		len += write(1, "%%", 1);
-		if(fmt[*ind - 1] == ' ')
+		if (fmt[*ind - 1] == ' ')
 			len += write(1, " ", 1);
 		else if (width)
 		{
